@@ -1,3 +1,4 @@
+require('dotenv').config();
 // Imorting the Express framework module into the 'express' variable.
 const express = require('express');
 // creating an instance of the express application by calling the express() function and assigning it to expressInstance variable.
@@ -30,7 +31,7 @@ expressInstance.set('view engine', 'ejs');
 expressInstance.set('views', './views');
 
 //Registering a route handler for the root URL in the Express.js application, directing requests to the specified index router module.
-expressInstance.use('/', require('./routes/index'));
+expressInstance.use('/', require('./routes/index.js'));
 
 // This code starting express server on the specified port.
 expressInstance.listen(gateWay, function(error){

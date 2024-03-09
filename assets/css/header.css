@@ -1,0 +1,23 @@
+.header-main-div{
+    background-color: rgb(144, 85, 12);
+    width: 100%; 
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    padding: 0 10px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.header-main-div p{
+    font-weight: 900;
+    font-size: 25px;
+    margin: 8% 0px;
+}
+
+.header-main-div li{
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}

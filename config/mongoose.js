@@ -1,9 +1,8 @@
 // This code establishes a connection to a Mongodb database using mongoose.
 
 const mongoose = require('mongoose');
-const mongoLink = require('../mongodburi');
 
-mongoose.connect(mongoLink);
+mongoose.connect(process.env.MONGODB_URI);
 
 const dataBase = mongoose.connection;
 

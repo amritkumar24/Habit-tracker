@@ -1,0 +1,37 @@
+body{
+    background-image: url("../images/firstpageimage.jpg" );
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#firstPageHeading{
+    height: 30vh;
+}
+
+#firstPageHeading h1{
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#firstPageHeading p {
+    color: #90550c;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#firstPagebutton {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items:end;
+}
+
+#firstPagebutton button{
+    width: 12%;
+    height: 18%;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #90550c;
+    color: white;
+    border: none;
+}

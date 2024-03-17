@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/css/mainPage.css">
+<h1>Your habits define your future. Make them count</h1>
+
+<div id="search-div">
+    <form action="/main/createHabit" method="post" id="select-form">
+        <select name="habits" id="habit-dropdown">
+            <option value="">Select a habit</option>
+            <option value="Walk">Walk</option>
+            <option value="Swim">Swim</option>
+            <option value="Dancing">Dancing</option>
+            <option value="Programming">Programming</option>
+            <option value="Hacking">Hacking</option>
+            <option value="Reading">Reading</option>
+            <option value="Learning">Learning</option>
+            <option value="Meditation">Meditation</option>
+            <option value="Running">Running</option>
+            <option value="Eating Healthy">Eating Healthy</option>
+        </select>
+        <button type="submit" id="add-habit">Add Habit</button>
+    </form>
+    <form action="/main/createHabit" method="post" id="custom-form">
+        <input type="text" id="custom-habit" name="custom_habit" placeholder="Write a habit to add" required>
+        <button type="submit" id="add-custom-habit"> Add Custom Habit </button> 
+    </form>
+        <button type="button" id="week-view-button"><a href="">Show Week view</a></button>
+</div>
+<div id="habit-container">
+    <%for(let habit of habits){%>
+        <div id="user-habits">
+            <% for(let habitstatus of habit.status){%>
+                <%if(habitstatus.date == currDate){%>
+                    <% var status = habitstatus.dateStatus %>
+                    <% break %>
+                <%}%>    
+            <%}%>
+
+            <h4><%= habit.name %></h4>
+
+            <select name="habit-status" class="habit-status-dropdown" id="<%= habit._id %>" >
+                <option value="Not Started" <% if(status === "Not Started") { %> selected <% } %>>Not Started</option>
+                <option value="Done" <% if(status === "Done") { %> selected <% } %>>Done</option>
+                <option value="Not Done" <% if(status === "Not Done") { %> selected <% } %>>Not Done</option>
+            </select>
+            <button type="button" id="<%= habit._id %>" ><a href="/main/deleteHabit/<%=habit._id%>">Delete</a></button>
+        </div>
+    <%}%>
+
+</div>
+
+<script src="/js/mainPage.js"></script>

@@ -1,8 +1,10 @@
 require('dotenv').config();
+
 // Imorting the Express framework module into the 'express' variable.
 const express = require('express');
 // creating an instance of the express application by calling the express() function and assigning it to expressInstance variable.
 const expressInstance = express();
+
 // Importing express-ejs-layouts module into the layoutsModule variable.
 const layoutsModule = require('express-ejs-layouts');
 
@@ -21,8 +23,8 @@ expressInstance.use(layoutsModule);
 const dataBase = require('./config/mongoose.js');
 
 //Enabling the automatic extraction of styles and scripts from views to include them in the layout file in express.js using express-ejs-layout middleware.
-expressInstance.set('layout extractStyles', 'true');
-expressInstance.set('layout extractScripts', 'true');
+expressInstance.set('layout extractStyles', true);
+expressInstance.set('layout extractScripts', true);
 
 //Setting up EJS as view engine for rendering dynamic content in Express.js.
 expressInstance.set('view engine', 'ejs');

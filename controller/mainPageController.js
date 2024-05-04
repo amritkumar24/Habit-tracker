@@ -14,8 +14,8 @@ module.exports.main = async function(req, res){
         
         const month = monthNames[currentDate.getMonth()];
         const day = currentDate.getDate();
-
-        const currDate = `${month} ${day}`;
+        const year = currentDate.getFullYear();
+        const currDate = `${day} ${month} ${year}`;
         
         res.render('./mainPage', {
             habits:habits,
@@ -46,12 +46,13 @@ module.exports.create=async function(req, res){
         for(let i=0; i<7; i++){
             
         let currentDate = new Date();
-        const check = currentDate.setDate(currentDate.getDate()-i);
+        const check = currentDate.setDate(currentDate.getDate()+i);
 
         const month = monthNames[currentDate.getMonth()];
         const day = currentDate.getDate();
+        const year = currentDate.getFullYear();
         
-        const formattedDate = `${month} ${day}`;
+        const formattedDate = `${day} ${month} ${year}`;
 
         let date = await Status.create({
             date:formattedDate,
@@ -89,18 +90,12 @@ module.exports.toggleStatus = async function(req, res){
 
         const month = monthNames[currentDate.getMonth()];
         const day = currentDate.getDate();
-
-        const date = `${month} ${day}`;
-
-        console.log(req.query.id, date);
-        
+        const year = currentDate.getFullYear();
+        const date = `${day} ${month} ${year}`;
 
         let status = await Status.findOne({habit:req.query.id, date:date});
-        console.log(status);
-
         status.dateStatus = req.query.status;
         status.save();
-        console.log(status);
 
         return res.redirect('back');
     } catch(error){

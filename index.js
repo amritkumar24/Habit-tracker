@@ -2,6 +2,7 @@ require('dotenv').config();
 
 // Imorting the Express framework module into the 'express' variable.
 const express = require('express');
+const {runDailyUpdate} = require('./assets/js/weekDayUpdate.js');
 // creating an instance of the express application by calling the express() function and assigning it to expressInstance variable.
 const expressInstance = express();
 
@@ -10,7 +11,7 @@ const layoutsModule = require('express-ejs-layouts');
 
 // Defining port number
 const gateWay = 4000;
-
+runDailyUpdate();
 // Middleware function to parse incoming requests with urlencoded payloads.
 // extended set to true allows parsing of rich objects and arrays.
 expressInstance.use(express.urlencoded({extended:true}));

@@ -52,6 +52,7 @@ h1{
     background-color: #dbc5bc;
     margin-right: 4%;
     border: 2px solid rgb(144, 85, 12);
+    cursor: pointer;
 }
 
 #search-div #week-view-button {
@@ -63,6 +64,7 @@ h1{
     border: none;
     margin-right: 4%;
     border: 2px solid rgb(144, 85, 12);
+    cursor: pointer;
 }
 
 #search-div #week-view-button a {
@@ -112,6 +114,7 @@ h1{
     background-color: #dbc5bc;
     border: 2px solid rgb(144, 85, 12);
     margin-right: 4%;
+    cursor: pointer;
 }
 
 #habit-container #user-habits button a {

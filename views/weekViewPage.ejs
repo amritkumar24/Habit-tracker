@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/css/weekViewPage.css">
+
+    <div id="header-div">
+        <h1>Empower Your Routine: Habit Mastery Starts Here</h1>
+        <button type="button" id="day-view"><a href="/main/dayView">Day View</a></button>
+    </div>
+
+    <div id="habits-div">
+        <% for (let habit of habits) { %>
+            <div id="user-habit">
+                <h4><%= habit.name %></h4>
+                <% habit.status.forEach(function(habitstatus) { %>
+                    <div>
+                        <p><%= habitstatus.date %></p>
+
+                        <% var bgcolor = '#B1B6B6'; %>
+                        <% if (habitstatus.dateStatus !== 'Not Started') { %>
+                            <% bgcolor = habitstatus.dateStatus == 'Done' ? 'green' : 'red'; %>
+                        <% } %>
+
+                        <button style="background-color: <%=bgcolor%>"><a href="/main/weekView/toggleStatus/?date=<%=habitstatus.date%>&id=<%=habit._id%>">&nbsp;</a></button>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
